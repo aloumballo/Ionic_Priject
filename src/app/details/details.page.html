@@ -1,0 +1,115 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+           
+
+            <div class="project-info-box">
+               <h6 class="display-4">Nom: {{ detailProduit?.nom }}</h6>
+                <p><b>Date:</b> 14.02.2020</p>
+                <p><b>Designer:</b> James Doe</p>
+                <p><b>Tools:</b> Illustrator</p>
+                <h6 class="display-4">Prix: {{ detailProduit?.prix }} Fcfa</h6>
+
+
+                <!--boisson-->
+                
+
+
+                <!--fermerboisson-->
+            </div><!-- / project-info-box -->
+
+            
+        </div><!-- / column -->
+
+        <div class="col-md-7">
+            <img src="data:image/png;base64,{{ detailProduit?.image }}" alt="project-image" class="rounded">
+            <div class="project-info-box">
+                <p><b>Categories:</b> Design, Illustration</p>
+                <p><b>Skills:</b> Illustrator</p>
+            </div><!-- / project-info-box -->
+        </div><!-- / column -->
+
+
+        <div class="lo" > 
+
+<ng-container *ngIf="detailProduit"=='data.menu'>
+      <h5>Composition du menu</h5>
+      <div>
+      
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Nom Produit</th>
+              <th scope="col">Quantite</th>
+              <th scope="col">Prix</th>
+            </tr>
+          </thead>
+          <tbody>
+           
+            <tr *ngFor="let burger of detailProduit.menuBurgers">
+
+            <td> <img src="data:image/png;base64,{{ burger.burger.image }}" alt="" style="width: 4rem;">  </td>
+            <td> {{ burger.burger.nom }} </td>
+            <td> {{ burger.quantite }} </td>
+            <td> {{ burger.burger.prix }} F</td>
+  
+            </tr>
+          <!--{{detailProduit.menuPortionFrites|json}}-->
+            <tr *ngFor="let portionFrite of detailProduit.menuPortionFrites">
+
+              <td> <img src="data:image/png;base64,{{ portionFrite.portionFrite.image }}" alt="" style="width: 3rem;">  </td>
+              <td> {{ portionFrite.portionFrite.nom }} </td>
+              <td> {{ portionFrite.portionFrite.quantite }} </td>
+              <td> {{ portionFrite.portionFrite.prix }} F</td>
+  
+              </tr>
+
+              <tr *ngFor="let taille of tailles">
+                
+                <ng-container *ngFor="let alou of taille.tailleBoissons" >
+                  <td > <img src="data:image/png;base64,{{ alou.boisson.image }}" alt="" style="width: 4rem;"> </td>
+                </ng-container>
+
+                <td> {{ taille.libelle }} </td>
+
+                <ng-container *ngFor="let boisson of taille.tailleBoissons" >
+                <td > {{ boisson.quantite }} </td>
+              </ng-container>
+                <td> {{ taille.prix }} </td>
+    
+
+                </tr>
+
+          </tbody>
+
+        </table>
+      </div>
+
+     </ng-container>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+</ion-content>

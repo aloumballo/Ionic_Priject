@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<!--slide-->
+<ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+          <img src="/assets/es.jpg" style="width: 10rem" alt="" />
+
+        </ion-slide>
+        <ion-slide>
+         <img src="/assets/ss0.jpg" style="width: 10rem" alt="" />
+        </ion-slide>
+        <ion-slide>
+          <img src="/assets/wwA.jpg" style="width: 10rem" alt="" />
+        </ion-slide>
+      </ion-slides>
+
+<!---->
+
+    <ion-button color="primary" class="mballo" (click)="changeCatalogue('burger')">Burger</ion-button>
+    <ion-button color="primary" class="alou" (click)="changeCatalogue('menu')">Menu</ion-button>
+  <ng-container *ngFor="let produit of produits">
+    
+
+ <ion-card>
+    
+  <ion-card-header>
+    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    <ion-card-title>Card Title</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <img src="data:image/png;base64,{{ produit?.image }}" alt="">
+    <ion-button color="primary" routerLink="/details/{{produit.id}}" [queryParams]="{type:type}">Detail</ion-button>
+   
+  </ion-card-content>
+</ion-card>
+
+
+
+</ng-container>
+
+
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>  
+    <ion-title>Footer - No Border</ion-title>
+  </ion-toolbar>
+
+</ion-footer>
