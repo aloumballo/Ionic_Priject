@@ -1,37 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title> Authentification </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-  
-
-
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
-        <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
-      </ion-col>
-    </ion-row>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-outline form-white mb-4">
+      <input
+        name="username"
+        type="email"
+        id="typeEmailX"
+        class="form-control form-control-lg"
+        [(ngModel)]="form.username"
+      />
+      <label class="form-label" for="typeEmailX">Email</label>
+    </div>
+
+    <div class="form-outline form-white mb-4">
+      <input
+        name="password"
+        type="password"
+        id="typePasswordX"
+        class="form-control form-control-lg"
+        [(ngModel)]="form.password"
+      />
+      <label class="form-label" for="typePasswordX">Password</label>
+    </div>
+
+    <p class="small mb-5 pb-lg-2">
+      <a class="text-white-50" href="#!">Forgot password?</a>
+    </p>
+
+    <button class="btn btn-outline-light btn-lg px-5" type="submit">
+      Login
+    </button>
   </form>
 
   <app-explore-container name=""></app-explore-container>
